@@ -30,12 +30,13 @@
         <script src="./Sin.js"></script>
         <script>
             function cn(v) {
-                var exp = SinTaylor(v)
+                var sexp = SinTaylor(v)
+                var lexp = largeSinTaylor(v)
                 var out = document.getElementById("output")
                 var MQ=MathQuill.getInterface(2)
                 var mf=MQ.StaticMath(out)
-                mf.latex(exp)
-                updateGraph("calculator","taylor",exp)
+                mf.latex(sexp+"="+lexp)
+                updateGraph("calculator","taylor",sexp)
             }
             var m=document.getElementById("max")
             m.addEventListener("change",(e)=>{
