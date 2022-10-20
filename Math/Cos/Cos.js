@@ -1,6 +1,6 @@
 var elt = document.getElementById('calculator');
 
-function SinTaylor(max) {
+function CosTaylor(max) {
     /*if (max<0) return;
     var eq=""
     var side="+"
@@ -10,17 +10,18 @@ function SinTaylor(max) {
         else side="+"
     }
     return eq*/
-    var eq = "\\sum_{n=0}^{"+max+"}\\frac{\\left(-1\\right)^{n}x^{\\left(2n+1\\right)}}{\\left(2n+1\\right)!}"
+    var eq = "\\sum_{n=0}^{"+max+"}\\frac{\\left(-1\\right)^{n}x^{\\left(2n\\right)}}{\\left(2n\\right)!}"
     return eq
+   
 }
 
 function updateGraph(calculator,id,eq,start="y=") {
     var elt = document.getElementById('calculator');
     elt.innerHTML=""
     var calculator=Desmos.GraphingCalculator(elt)
-    calculator.setExpression({id: "sin",latex:"y=\\sin(x)"})
+    calculator.setExpression({id: "sin",latex:"y=\\cos(x)"})
     calculator.setExpression({ id: id, latex: start+eq});
-    }
+}
     
    function fix(s) {
        var res=s

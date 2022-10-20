@@ -2,35 +2,34 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Page title</title>
+        <title>Coseno</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mathquill@0.10.1/build/mathquill.css" integrity="sha256-d6u6FFcCwDum5poAR2ya2efvQXKfYC2RLjJtv+ODxTI=" crossorigin="anonymous">
     </head>
     <body>
         <div><span>Serie di Taylor</span></div>
         <label for="max" id="lbid"></label><br>
-        <input style="width:80%" list="perc" type="range" id="max" min="1" max="100" step="2" value="1"><br>
-        <button onClick="ViewInf"></button>
+        <input style="width:80%" list="perc" type="range" id="max" min="0" max="100" step="2" value="1"><br>
         <div id="calculator" style="width: 600px; height: 400px;"></div><br>
         <p style="width:100%" id="output"></p>
         <datalist id="perc">
-            <option value="1" label="1"></option>
-            <option value="11" label="11"></option>
-            <option value="21" label="21"></option>
-            <option value="31" label="31"></option>
-            <option value="41" label="41"></option>
-            <option value="51" label="51"></option>
-            <option value="61" label="61"></option>
-            <option value="71" label="71"></option>
-            <option value="81" label="81"></option>
-            <option value="91" label="91"></option>
+            <option value=0" label="1"></option>
+            <option value="10" label="10"></option>
+            <option value="20" label="20"></option>
+            <option value="30" label="30"></option>
+            <option value="40" label="40"></option>
+            <option value="50" label="50"></option>
+            <option value="60" label="60"></option>
+            <option value="70" label="70"></option>
+            <option value="80" label="80"></option>
+            <option value="90" label="90"></option>
         </datalist>
         <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/combine/npm/mathquill@0.10.1/build/mathquill.min.js,npm/mathquill@0.10.1/build/mathquill.js"></script>
-        <script src="./Sin.js"></script>
+        <script src="./Cos.js"></script>
         <script>
             function cn(v) {
-                var exp = SinTaylor(v)
+                var exp = CosTaylor(v)
                 var out = document.getElementById("output")
                 var MQ=MathQuill.getInterface(2)
                 var mf=MQ.StaticMath(out)
