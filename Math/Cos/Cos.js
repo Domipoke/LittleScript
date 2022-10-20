@@ -19,7 +19,7 @@ function updateGraph(calculator,id,eq,start="y=") {
     var elt = document.getElementById('calculator');
     elt.innerHTML=""
     var calculator=Desmos.GraphingCalculator(elt)
-    calculator.setExpression({id: "sin",latex:"y=\\cos(x)"})
+    calculator.setExpression({id: "cos",latex:"y=\\cos(x)"})
     calculator.setExpression({ id: id, latex: start+eq});
 }
     
