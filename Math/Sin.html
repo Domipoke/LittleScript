@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Page title</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mathquill@0.10.1/build/mathquill.css" integrity="sha256-d6u6FFcCwDum5poAR2ya2efvQXKfYC2RLjJtv+ODxTI=" crossorigin="anonymous">
+    </head>
+    <body>
+        <div><span>Serie di Taylor</span></div>
+        <input style="width:80%" list="perc" type="range" id="max" min="1" max="100" step="2" value="1"><label for="max" id="lbid"></label><br>
+       <br>
+        <div id="calculator" style="width: 600px; height: 400px;"></div><br> <span id="output"></span>
+        <datalist id="perc">
+            <option value="1" label="1"></option>
+            <option value="11" label="11"></option>
+            <option value="21" label="21"></option>
+            <option value="31" label="31"></option>
+            <option value="41" label="41"></option>
+            <option value="51" label="51"></option>
+            <option value="61" label="61"></option>
+            <option value="71" label="71"></option>
+            <option value="81" label="81"></option>
+            <option value="91" label="91"></option>
+        </datalist>
+        <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="../Js/Sin.js"></script>
+        <script src="https://cdn.jsdelivr.net/combine/npm/mathquill@0.10.1/build/mathquill.min.js,npm/mathquill@0.10.1/build/mathquill.js"></script>
+        <script>
+            document.getElementById("max").addEventListener("change",(e)=>{
+             var v = e.target.value
+               
+               
+                var exp = SinTaylor(v)
+                var out = document.getElementById("output")
+                var MQ=MathQuill.getInterface(2)
+                var mf=MQ.StaticMath(out)
+                mf.latex(exp)
+                 updateGraph("calculator","taylor",exp)
+            })
+            document.getElementById("max").addEventListener("input",(e)=>{
+             var v = e.target.value
+                document.getElementById("lbid").innerHTML=v
+                })
+       </script>
+    </body>
+    </html>
