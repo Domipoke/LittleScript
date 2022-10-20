@@ -27,21 +27,26 @@
         <script src="./Sin.js"></script>
         <script src="https://cdn.jsdelivr.net/combine/npm/mathquill@0.10.1/build/mathquill.min.js,npm/mathquill@0.10.1/build/mathquill.js"></script>
         <script>
-            document.getElementById("max").addEventListener("change",(e)=>{
-             var v = e.target.value
-               
-               
+            function cn(v) {
                 var exp = SinTaylor(v)
                 var out = document.getElementById("output")
                 var MQ=MathQuill.getInterface(2)
                 var mf=MQ.StaticMath(out)
                 mf.latex(exp)
-                 updateGraph("calculator","taylor",exp)
+                updateGraph("calculator","taylor",exp)
+            }
+            document.getElementById("max").addEventListener("load",(e)=>{
+                var v = e.target.value
+                cn(v)   
+            })
+            document.getElementById("max").addEventListener("change",(e)=>{
+                var v = e.target.value
+                cn(v)    
             })
             document.getElementById("max").addEventListener("input",(e)=>{
-             var v = e.target.value
+                var v = e.target.value
                 document.getElementById("lbid").innerHTML=v
-                })
+            })
        </script>
     </body>
     </html>
