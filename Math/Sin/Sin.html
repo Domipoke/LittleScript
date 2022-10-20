@@ -9,7 +9,8 @@
         <div><span>Serie di Taylor</span></div>
         <input style="width:80%" list="perc" type="range" id="max" min="1" max="100" step="2" value="1"><label for="max" id="lbid"></label><br>
        <br>
-        <div id="calculator" style="width: 600px; height: 400px;"></div><br> <span id="output"></span>
+        <div id="calculator" style="width: 600px; height: 400px;"></div><br>
+        <p style="width:100%" id="output"></p>
         <datalist id="perc">
             <option value="1" label="1"></option>
             <option value="11" label="11"></option>
@@ -23,9 +24,9 @@
             <option value="91" label="91"></option>
         </datalist>
         <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="./Sin.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/combine/npm/mathquill@0.10.1/build/mathquill.min.js,npm/mathquill@0.10.1/build/mathquill.js"></script>
+        <script src="./Sin.js"></script>
         <script>
             function cn(v) {
                 var exp = SinTaylor(v)
@@ -35,18 +36,16 @@
                 mf.latex(exp)
                 updateGraph("calculator","taylor",exp)
             }
-            document.getElementById("max").addEventListener("load",(e)=>{
-                var v = e.target.value
-                cn(v)   
-            })
-            document.getElementById("max").addEventListener("change",(e)=>{
+            var m=document.getElementById("max")
+            m.addEventListener("change",(e)=>{
                 var v = e.target.value
                 cn(v)    
             })
-            document.getElementById("max").addEventListener("input",(e)=>{
+            m.addEventListener("input",(e)=>{
                 var v = e.target.value
                 document.getElementById("lbid").innerHTML=v
             })
+            cn(1)
        </script>
     </body>
     </html>
